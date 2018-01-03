@@ -10,6 +10,9 @@ namespace Babysitter
     {
         static void Main(string[] args)
         {
+            BabySitter babySitter = new BabySitter();
+            babySitter.Init();
+            babySitter.ShowAllEmployees();
         }
     }
 }
