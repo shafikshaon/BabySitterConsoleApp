@@ -12,7 +12,7 @@ namespace Babysitter
         {
             BabySitter babySitter = new BabySitter();
             babySitter.Init();
-            babySitter.ShowAllEmployees();
+            babySitter.Start();
         }
     }
 }

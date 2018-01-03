@@ -6,9 +6,25 @@ using System.Threading.Tasks;
 
 namespace Babysitter
 {
+    enum MenuOperationChoice
+    {
+        ShowAllEmployers = 1,
+        AddEmployerAndEmergencyContactWithChild = 2,
+        AddChild = 3,
+        RemoveEmployer = 4,
+        RemoveChild = 5
+    }
     class BabySitter
     {
         public List<Employer> Employers = new List<Employer>();
+
+        public string MenuPrompt = @"
+------------------------Menu Operation------------------------
+1. Show All Employers 
+2. Add Employer and Emergency Contact With Child
+3. Add Child
+4. Remove Employer
+5. Remove Child";
         public void Init()
         {
             Employers.Add(new Employer
@@ -29,6 +45,7 @@ namespace Babysitter
         public void ShowAllEmployees()
         {
             var i = 1;
+            Console.WriteLine("======All Employers=====");
             foreach (var employer in Employers)
             {
                 Console.WriteLine("Serial No: " + i++);
@@ -36,6 +53,77 @@ namespace Babysitter
                 Console.WriteLine("Address: " + employer.Address);
                 Console.WriteLine("Phone Number: " + employer.PhoneNumber);
                 Console.WriteLine("Number of children: " + employer.Children.Count);
+            }
+        }
+
+        public void Start()
+        {
+            Console.WriteLine(MenuPrompt);
+            var choice = TakeUserInput("Enter your choice", "Wong choice! Try again");
+            switch (choice)
+            {
+                case (int)MenuOperationChoice.ShowAllEmployers:
+                    ShowAllEmployees();
+                    Start();
+                    break;
+                case (int)MenuOperationChoice.AddEmployerAndEmergencyContactWithChild:
+                    AddEmployerAndEmergencyContactWithChild();
+                    Start();
+                    break;
+            }
+        }
+
+        private void AddEmployerAndEmergencyContactWithChild()
+        {
+            Console.WriteLine("Enter employer name");
+            var employerName = Console.ReadLine();
+            Console.WriteLine("Enter employer address");
+            var employerAddress= Console.ReadLine();
+            Console.WriteLine("Enter employer phone number");
+            var employerPhoneNumber = Console.ReadLine();
+            Console.WriteLine("Enter emergency contact person name");
+            var emergencyContactPersonName = Console.ReadLine();
+            Console.WriteLine("Enter emergency contact person phone number");
+            var emergencyContactPersonPhoneNumber = Console.ReadLine();
+            Console.WriteLine("Enter relationship with employer");
+            var relationshipWithEmployer = Console.ReadLine();
+            Console.WriteLine("Enter child name");
+            var employerChildName = Console.ReadLine();
+            var employerAge = TakeUserInput("Enter child age", "Wrong input! Try again");
+            Console.WriteLine("Enter child special health information");
+            var employerChildEmployerHealthInformation = Console.ReadLine();
+            Console.WriteLine("Enter child interest");
+            var employerChildInterest = Console.ReadLine();
+
+            Employers.Add(new Employer
+            {
+                Name = employerName, Address = employerAddress, PhoneNumber = employerPhoneNumber,
+                EmergencyContact = new EmergencyContact
+                {
+                    Name = emergencyContactPersonName, PhoneNumber = emergencyContactPersonPhoneNumber, Relationship = relationshipWithEmployer
+                },
+                Children = new List<Child>
+                {
+                    new Child
+                    {
+                        Name = employerChildName, Age = employerAge, SpecialHealthInformation = employerChildEmployerHealthInformation, Interest = employerChildInterest
+                    }
+                }
+            });
+        }
+
+        private int TakeUserInput(string inputPrompt, string errorMessage)
+        {
+            Console.WriteLine(inputPrompt);
+            var input = Console.ReadLine();
+            try
+            {
+                return Convert.ToInt32(input);
+            }
+            catch (Exception)
+            {
+                Console.WriteLine(errorMessage);
+                return TakeUserInput(inputPrompt, errorMessage);
             }
         }
     }
