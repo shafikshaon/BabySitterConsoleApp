@@ -70,7 +70,26 @@ namespace Babysitter
                     AddEmployerAndEmergencyContactWithChild();
                     Start();
                     break;
+                case (int)MenuOperationChoice.AddChild:
+                    ShowAllEmployees();
+                    AddChild();
+                    Start();
+                    break;
             }
+        }
+
+        private void AddChild()
+        {
+            var employerId = TakeUserInput("Select employer to add child", "Wrong choice! Please try again");
+            Console.WriteLine("Enter child name");
+            var employerChildName = Console.ReadLine();
+            var employerAge = TakeUserInput("Enter child age", "Wrong input! Try again");
+            Console.WriteLine("Enter child special health information");
+            var employerChildEmployerHealthInformation = Console.ReadLine();
+            Console.WriteLine("Enter child interest");
+            var employerChildInterest = Console.ReadLine();
+            Employers[employerId - 1].Children.Add(new Child { Name = employerChildName, Age = employerAge, SpecialHealthInformation = employerChildEmployerHealthInformation, Interest = employerChildInterest });
+            Console.WriteLine("Child added successfully");
         }
 
         private void AddEmployerAndEmergencyContactWithChild()
