@@ -75,7 +75,19 @@ namespace Babysitter
                     AddChild();
                     Start();
                     break;
+                case (int)MenuOperationChoice.RemoveEmployer:
+                    ShowAllEmployees();
+                    RemoveEmployer();
+                    Start();
+                    break;
             }
+        }
+
+        private void RemoveEmployer()
+        {
+            var employerId = TakeUserInput("Select employer to remove", "Wrong choice! Please try again");
+            Employers.RemoveAt(employerId - 1);
+            Console.WriteLine("Employer deleted successfully");
         }
 
         private void AddChild()
