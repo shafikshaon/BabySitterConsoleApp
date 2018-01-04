@@ -134,8 +134,12 @@ namespace Babysitter
         private void RemoveEmployer()
         {
             var employerId = TakeUserInput("Select employer to remove", "Wrong choice! Please try again");
-            Employers.RemoveAt(employerId - 1);
-            Console.WriteLine("Employer deleted successfully");
+            if (Employers.Count >= employerId && Employers.Count <= employerId)
+            {
+                Employers.RemoveAt(employerId - 1);
+                Console.WriteLine("Employer deleted successfully");
+            }
+            Console.WriteLine("Employer doesn't exists\n");
         }
 
         private void AddChild()
