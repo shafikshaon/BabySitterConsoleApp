@@ -63,7 +63,7 @@ namespace Babysitter
             while (true)
             {
                 Console.WriteLine(MenuPrompt);
-                var choice = TakeUserInput("Enter your choice", "Wong choice! Try again");
+                var choice = TakeUserInput("Enter your choice", "Wrong choice! Try again");
                 switch (choice)
                 {
                     case (int) MenuOperationChoice.ShowAllEmployers:
@@ -119,16 +119,30 @@ namespace Babysitter
         private void RemoveChild()
         {
             var employerId = TakeUserInput("Select employer to remove child", "Wrong choice! Please try again");
-            var i = 1;
-            Console.WriteLine("---------Child List-----------");
-            foreach (var child in Employers[employerId-1].Children)
+            if (Employers.Count >= employerId && Employers.Count <= employerId)
             {
-                Console.WriteLine(i++ + child.Name + "\t" + child.Age + "\t" + child.SpecialHealthInformation + "\t" +
-                                  child.Interest);
+                var i = 1;
+                Console.WriteLine("---------Child List-----------");
+                foreach (var child in Employers[employerId - 1].Children)
+                {
+                    Console.WriteLine(i++ + " " + child.Name + "\t" + child.Age + "\t" + child.SpecialHealthInformation + "\t" +
+                                      child.Interest);
+                }
+                var childId = TakeUserInput("Select child to remove", "Wrong choice! Please try again");
+                if (Employers[employerId - 1].Children.Count <= childId || childId < 1)
+                {
+                    Console.WriteLine("Child doesn't exists\n");
+                }
+                else
+                {
+                    Employers[employerId - 1].Children.RemoveAt(childId - 1);
+                    Console.WriteLine("Child deleted successfully");
+                }
             }
-            var childId = TakeUserInput("Select child to remove", "Wrong choice! Please try again");
-            Employers[employerId - 1].Children.RemoveAt(childId - 1);
-            Console.WriteLine("Child deleted successfully");
+            else
+            {
+                Console.WriteLine("Employer doesn't exists\n");
+            }
         }
 
         private void RemoveEmployer()
