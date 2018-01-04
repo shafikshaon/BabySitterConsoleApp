@@ -98,22 +98,29 @@ namespace Babysitter
         private void EmployerDetails()
         {
             var employerId = TakeUserInput("Select employer to see details", "Wrong choice! Please try again");
-            var i = 1;
-            Console.WriteLine("\n---Employer---");
-            Console.WriteLine("Name: " + Employers[employerId - 1].Name);
-            Console.WriteLine("Address: " + Employers[employerId - 1].Address);
-            Console.WriteLine("Phone Number: " + Employers[employerId - 1].PhoneNumber);
-            Console.WriteLine("\n---Emergency Contact---");
-            Console.WriteLine("Name: " + Employers[employerId - 1].EmergencyContact.Name);
-            Console.WriteLine("Relationship: " + Employers[employerId - 1].EmergencyContact.Relationship);
-            Console.WriteLine("Phone Number: " + Employers[employerId - 1].EmergencyContact.PhoneNumber);
-            Console.WriteLine("\nChildren(s)");
-            foreach (var child in Employers[employerId - 1].Children)
+            if (Employers.Count >= employerId && Employers.Count <= employerId)
             {
-                Console.WriteLine(i++ + " " + child.Name + "\t" + child.Age + "\t" + child.SpecialHealthInformation + "\t" +
-                                  child.Interest);
+                var i = 1;
+                Console.WriteLine("\n---Employer---");
+                Console.WriteLine("Name: " + Employers[employerId - 1].Name);
+                Console.WriteLine("Address: " + Employers[employerId - 1].Address);
+                Console.WriteLine("Phone Number: " + Employers[employerId - 1].PhoneNumber);
+                Console.WriteLine("\n---Emergency Contact---");
+                Console.WriteLine("Name: " + Employers[employerId - 1].EmergencyContact.Name);
+                Console.WriteLine("Relationship: " + Employers[employerId - 1].EmergencyContact.Relationship);
+                Console.WriteLine("Phone Number: " + Employers[employerId - 1].EmergencyContact.PhoneNumber);
+                Console.WriteLine("\nChildren(s)");
+                foreach (var child in Employers[employerId - 1].Children)
+                {
+                    Console.WriteLine(i++ + " " + child.Name + "\t" + child.Age + "\t" + child.SpecialHealthInformation + "\t" +
+                                      child.Interest);
+                }
+                Console.WriteLine("=============================================================================================================");
             }
-            Console.WriteLine("=============================================================================================================");
+            else
+            {
+                Console.WriteLine("Emploer doesn't exists");
+            }
         }
 
         private void RemoveChild()
