@@ -80,7 +80,27 @@ namespace Babysitter
                     RemoveEmployer();
                     Start();
                     break;
+                case (int)MenuOperationChoice.RemoveChild:
+                    ShowAllEmployees();
+                    RemoveChild();
+                    Start();
+                    break;
             }
+        }
+
+        private void RemoveChild()
+        {
+            var employerId = TakeUserInput("Select employer to remove child", "Wrong choice! Please try again");
+            var i = 1;
+            Console.WriteLine("---------Child List-----------");
+            foreach (var child in Employers[employerId-1].Children)
+            {
+                Console.WriteLine(i++ + child.Name + "\t" + child.Age + "\t" + child.SpecialHealthInformation + "\t" +
+                                  child.Interest);
+            }
+            var childId = TakeUserInput("Select child to remove", "Wrong choice! Please try again");
+            Employers[employerId - 1].Children.RemoveAt(childId - 1);
+            Console.WriteLine("Child deleted successfully");
         }
 
         private void RemoveEmployer()
