@@ -60,38 +60,38 @@ namespace Babysitter
 
         public void Start()
         {
-            Console.WriteLine(MenuPrompt);
-            var choice = TakeUserInput("Enter your choice", "Wong choice! Try again");
-            switch (choice)
+            while (true)
             {
-                case (int)MenuOperationChoice.ShowAllEmployers:
-                    ShowAllEmployees();
-                    Start();
-                    break;
-                case (int)MenuOperationChoice.AddEmployerAndEmergencyContactWithChild:
-                    AddEmployerAndEmergencyContactWithChild();
-                    Start();
-                    break;
-                case (int)MenuOperationChoice.AddChild:
-                    ShowAllEmployees();
-                    AddChild();
-                    Start();
-                    break;
-                case (int)MenuOperationChoice.RemoveEmployer:
-                    ShowAllEmployees();
-                    RemoveEmployer();
-                    Start();
-                    break;
-                case (int)MenuOperationChoice.RemoveChild:
-                    ShowAllEmployees();
-                    RemoveChild();
-                    Start();
-                    break;
-                case (int)MenuOperationChoice.EmployerDetails:
-                    ShowAllEmployees();
-                    EmployerDetails();
-                    Start();
-                    break;
+                Console.WriteLine(MenuPrompt);
+                var choice = TakeUserInput("Enter your choice", "Wong choice! Try again");
+                switch (choice)
+                {
+                    case (int) MenuOperationChoice.ShowAllEmployers:
+                        ShowAllEmployees();
+                        continue;
+                    case (int) MenuOperationChoice.AddEmployerAndEmergencyContactWithChild:
+                        AddEmployerAndEmergencyContactWithChild();
+                        continue;
+                    case (int) MenuOperationChoice.AddChild:
+                        ShowAllEmployees();
+                        AddChild();
+                        continue;
+                    case (int) MenuOperationChoice.RemoveEmployer:
+                        ShowAllEmployees();
+                        RemoveEmployer();
+                        continue;
+                    case (int) MenuOperationChoice.RemoveChild:
+                        ShowAllEmployees();
+                        RemoveChild();
+                        continue;
+                    case (int) MenuOperationChoice.EmployerDetails:
+                        ShowAllEmployees();
+                        EmployerDetails();
+                        continue;
+                    default:
+                        Console.WriteLine("Wrong choice! Please select right choice");
+                        continue;
+                }
             }
         }
 
