@@ -126,7 +126,7 @@ namespace Babysitter
         private void RemoveChild()
         {
             var employerId = TakeUserInput("Select employer to remove child", "Wrong choice! Please try again");
-            if (Employers.Count >= employerId && Employers.Count <= employerId)
+            if (Employers.Count >= employerId || employerId < 1)
             {
                 var i = 1;
                 Console.WriteLine("---------Child List-----------");
@@ -136,7 +136,7 @@ namespace Babysitter
                                       child.Interest);
                 }
                 var childId = TakeUserInput("Select child to remove", "Wrong choice! Please try again");
-                if (Employers[employerId - 1].Children.Count <= childId || childId < 1)
+                if (Employers[employerId - 1].Children.Count > childId || childId < 1)
                 {
                     Console.WriteLine("Child doesn't exists\n");
                 }
@@ -155,12 +155,15 @@ namespace Babysitter
         private void RemoveEmployer()
         {
             var employerId = TakeUserInput("Select employer to remove", "Wrong choice! Please try again");
-            if (Employers.Count >= employerId && Employers.Count <= employerId)
+            if (Employers.Count >= employerId || employerId < 1)
             {
                 Employers.RemoveAt(employerId - 1);
                 Console.WriteLine("Employer deleted successfully");
             }
-            Console.WriteLine("Employer doesn't exists\n");
+            else
+            {
+                Console.WriteLine("Employer doesn't exists\n");
+            }
         }
 
         private void AddChild()
