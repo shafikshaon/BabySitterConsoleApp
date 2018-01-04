@@ -1,0 +1,177 @@
+
+------------------------Menu Operation------------------------
+1. Show All Employers
+2. Add Employer and Emergency Contact With Child
+3. Add Child
+4. Remove Employer
+5. Remove Child
+6. Show an Employer Details
+Enter your choice
+2
+Enter employer name
+John Smith
+Enter employer address
+Farmgate
+Enter employer phone number
+01800000000
+Enter emergency contact person name
+John Doe
+Enter emergency contact person phone number
+01900000000
+Enter relationship with employer
+Uncle
+Enter child name
+Frankin
+Enter child age
+7
+Enter child special health information
+Nothing
+Enter child interest
+None
+
+------------------------Menu Operation------------------------
+1. Show All Employers
+2. Add Employer and Emergency Contact With Child
+3. Add Child
+4. Remove Employer
+5. Remove Child
+6. Show an Employer Details
+Enter your choice
+6
+======All Employers=====
+Serial No: 1
+Name: Shafik Shaon
+Address: Primary School Road, Kallyanpur, Mirpur, Dhaka - 1207
+Phone Number: 01615184686
+Number of children: 2
+Serial No: 2
+Name: John Smith
+Address: Farmgate
+Phone Number: 01800000000
+Number of children: 1
+Select employer to see details
+2
+
+---Employer---
+Name: John Smith
+Address: Farmgate
+Phone Number: 01800000000
+
+---Emergency Contact---
+Name: John Doe
+Relationship: Uncle
+Phone Number: 01900000000
+
+Children(s)
+1 Frankin       7       Nothing None
+=============================================================================================================
+
+------------------------Menu Operation------------------------
+1. Show All Employers
+2. Add Employer and Emergency Contact With Child
+3. Add Child
+4. Remove Employer
+5. Remove Child
+6. Show an Employer Details
+Enter your choice
+5
+======All Employers=====
+Serial No: 1
+Name: Shafik Shaon
+Address: Primary School Road, Kallyanpur, Mirpur, Dhaka - 1207
+Phone Number: 01615184686
+Number of children: 2
+Serial No: 2
+Name: John Smith
+Address: Farmgate
+Phone Number: 01800000000
+Number of children: 1
+Select employer to remove child
+2
+---------Child List-----------
+1 Frankin       7       Nothing None
+Select child to remove
+1
+Child deleted successfully
+
+------------------------Menu Operation------------------------
+1. Show All Employers
+2. Add Employer and Emergency Contact With Child
+3. Add Child
+4. Remove Employer
+5. Remove Child
+6. Show an Employer Details
+Enter your choice
+4
+======All Employers=====
+Serial No: 1
+Name: Shafik Shaon
+Address: Primary School Road, Kallyanpur, Mirpur, Dhaka - 1207
+Phone Number: 01615184686
+Number of children: 2
+Serial No: 2
+Name: John Smith
+Address: Farmgate
+Phone Number: 01800000000
+Number of children: 0
+Select employer to remove
+2
+Employer deleted successfully
+
+------------------------Menu Operation------------------------
+1. Show All Employers
+2. Add Employer and Emergency Contact With Child
+3. Add Child
+4. Remove Employer
+5. Remove Child
+6. Show an Employer Details
+Enter your choice
+1
+======All Employers=====
+Serial No: 1
+Name: Shafik Shaon
+Address: Primary School Road, Kallyanpur, Mirpur, Dhaka - 1207
+Phone Number: 01615184686
+Number of children: 2
+
+------------------------Menu Operation------------------------
+1. Show All Employers
+2. Add Employer and Emergency Contact With Child
+3. Add Child
+4. Remove Employer
+5. Remove Child
+6. Show an Employer Details
+Enter your choice
+6
+======All Employers=====
+Serial No: 1
+Name: Shafik Shaon
+Address: Primary School Road, Kallyanpur, Mirpur, Dhaka - 1207
+Phone Number: 01615184686
+Number of children: 2
+Select employer to see details
+1
+
+---Employer---
+Name: Shafik Shaon
+Address: Primary School Road, Kallyanpur, Mirpur, Dhaka - 1207
+Phone Number: 01615184686
+
+---Emergency Contact---
+Name: Shafikur Rahman
+Relationship: Brother
+Phone Number: 01705184686
+
+Children(s)
+1 Children1     8       None    Video Games
+2 Children2     10      Sometimes feeling headche       Nothing
+=============================================================================================================
+
+------------------------Menu Operation------------------------
+1. Show All Employers
+2. Add Employer and Emergency Contact With Child
+3. Add Child
+4. Remove Employer
+5. Remove Child
+6. Show an Employer Details
+Enter your choice
