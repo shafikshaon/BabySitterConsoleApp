@@ -12,7 +12,8 @@ namespace Babysitter
         AddEmployerAndEmergencyContactWithChild = 2,
         AddChild = 3,
         RemoveEmployer = 4,
-        RemoveChild = 5
+        RemoveChild = 5,
+        EmployerDetails = 6
     }
     class BabySitter
     {
@@ -24,7 +25,8 @@ namespace Babysitter
 2. Add Employer and Emergency Contact With Child
 3. Add Child
 4. Remove Employer
-5. Remove Child";
+5. Remove Child
+6. Show an Employer Details";
         public void Init()
         {
             Employers.Add(new Employer
@@ -85,7 +87,33 @@ namespace Babysitter
                     RemoveChild();
                     Start();
                     break;
+                case (int)MenuOperationChoice.EmployerDetails:
+                    ShowAllEmployees();
+                    EmployerDetails();
+                    Start();
+                    break;
             }
+        }
+
+        private void EmployerDetails()
+        {
+            var employerId = TakeUserInput("Select employer to see details", "Wrong choice! Please try again");
+            var i = 1;
+            Console.WriteLine("\n---Employer---");
+            Console.WriteLine("Name: " + Employers[employerId - 1].Name);
+            Console.WriteLine("Address: " + Employers[employerId - 1].Address);
+            Console.WriteLine("Phone Number: " + Employers[employerId - 1].PhoneNumber);
+            Console.WriteLine("\n---Emergency Contact---");
+            Console.WriteLine("Name: " + Employers[employerId - 1].EmergencyContact.Name);
+            Console.WriteLine("Relationship: " + Employers[employerId - 1].EmergencyContact.Relationship);
+            Console.WriteLine("Phone Number: " + Employers[employerId - 1].EmergencyContact.PhoneNumber);
+            Console.WriteLine("\nChildren(s)");
+            foreach (var child in Employers[employerId - 1].Children)
+            {
+                Console.WriteLine(i++ + " " + child.Name + "\t" + child.Age + "\t" + child.SpecialHealthInformation + "\t" +
+                                  child.Interest);
+            }
+            Console.WriteLine("=============================================================================================================");
         }
 
         private void RemoveChild()
